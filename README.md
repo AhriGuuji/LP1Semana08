@@ -1,16 +1,34 @@
+# Diagram UML for MiniGame
+
 ```mermaid
 ---
 title: Program MiniGame
 ---
 
 classDiagram
-    Character--> Weapon
-    Character:+Name
-    Weapon:#power
-    Player..> Character
-    Enemy..> Character
-    Weapon*-- Sword
-    Weapon*-- Gun
-    Gun: +int Ammo
-    Sword: +float BladeLength
+    class Enemy { }
+
+    class Player { }
+
+    class Character {
+        +Name
+        #Weapon[]
+    }
+
+    class Sword {
+    +float BladeLength
+    +AttackWithSword()
+    }
+
+    class Gun {
+    +int Ammo
+    +FireGun()
+    }
+
+    Character <-- Weapon
+    Weapon: #power
+    Player ..> Character
+    Enemy ..> Character
+    Weapon *-- Sword
+    Weapon *-- Gun
 ```
