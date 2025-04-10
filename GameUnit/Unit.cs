@@ -3,10 +3,11 @@ using System;
 
 namespace GameUnit
 {
-    public class Unit
+    public abstract class Unit
     {
         private readonly int movement;
-        public int Health { get; set; }
+        public abstract float Cost { get; }
+        public virtual int Health { get; set; }
 
         public Unit(int movement, int health)
         {
@@ -17,6 +18,11 @@ namespace GameUnit
         public void Move(int movement)
         {
             Console.WriteLine($"This Unit moved {movement.ToRoman()} houses");
+        }
+
+        public override string ToString()
+        {
+            return $"SettlerUnit: HP={Health} Cost={Cost:f2}";
         }
     }
 }

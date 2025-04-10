@@ -9,6 +9,26 @@ namespace GameUnit
         {                                                        // Unit(int, int)
             AttackPower = attackPower;
             XP = 0;
+            Health = Health + XP;
+        }
+
+        public override float Cost
+        {
+            get 
+            {
+                return AttackPower+XP;
+            }
+        }
+
+        public void Attack(Unit u)
+        {
+            XP++;
+            u.Health -= AttackPower;
+        }
+
+        public override string ToString()
+        {
+            return $"SettlerUnit: HP={Health} Cost={Cost:f2} AP={AttackPower} XP={XP}";
         }
     }
 }
